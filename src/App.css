@@ -1,38 +1,117 @@
-.App {
+/* Styles généraux */
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #ffebcd;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #ff4500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center;
+  height: 100vh; /* Optionnel : Centre aussi verticalement */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: fit-content; /* Ajuste automatiquement la largeur */
+  margin: 20px auto;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  background: #ffcc00;
+  border: 2px solid #ff4500;
+  font-size: 14px;
+  border-radius: 10px;
+  transition: 0.2s;
+  
+  /* Permet le retour à la ligne */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  padding: 5px;
+}
+
+.cell:hover {
+  background: #ff9933;
+}
+
+.marked {
+  background: #4caf50 !important;
   color: white;
+  text-decoration: line-through;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
+button:hover {
+  background: #e63900;
+}
+
+/* Modale de victoire */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  animation: pop-in 0.3s ease-out;
+}
+
+.modal-content h2 {
+  color: #ff4500;
+}
+
+.modal-content button {
+  background: #4caf50;
+}
+
+.modal-content button:hover {
+  background: #388e3c;
+}
+
+/* Animation d’apparition */
+@keyframes pop-in {
   from {
-    transform: rotate(0deg);
+    transform: scale(0.8);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
   }
 }
