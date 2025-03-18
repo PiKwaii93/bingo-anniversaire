@@ -3,25 +3,30 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   background-color: #ffebcd;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   color: #ff4500;
+  font-size: 24px;
+  margin: 20px 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre horizontalement */
+  align-items: center;
   justify-content: center;
-  height: 100vh; /* Optionnel : Centre aussi verticalement */
+  height: 100vh;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  width: fit-content; /* Ajuste automatiquement la largeur */
+  width: 100%;
+  max-width: 400px;
   margin: 20px auto;
 }
 
@@ -37,12 +42,10 @@ h1 {
   font-size: 14px;
   border-radius: 10px;
   transition: 0.2s;
-  
-  /* Permet le retour à la ligne */
+  padding: 5px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
-  padding: 5px;
 }
 
 .cell:hover {
@@ -113,5 +116,33 @@ button:hover {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile */
+  }
+
+  .cell {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+  }
+
+  button {
+    width: 80%;
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  .modal-content {
+    width: 90%; /* Modal prend 90% de la largeur */
+    padding: 15px;
   }
 }
