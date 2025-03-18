@@ -115,3 +115,10 @@ button:hover {
     opacity: 1;
   }
 }
+
+/* Applique une police différente sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-family: 'Roboto', sans-serif; /* Remplace la police par Roboto ou Arial */
+  }
+}
